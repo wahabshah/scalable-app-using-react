@@ -9,14 +9,16 @@
  * the linting exception.
  */
 
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { FormattedMessage } from 'react-intl';
 import messages from './messages';
 import NavigationContainer from '../NavigationContainer';
-import LinkListContainer from '../LinkListContainer';
+// import LinkListContainer from '../LinkListContainer';
 
 export default class HomePage extends React.Component { // eslint-disable-line react/prefer-stateless-function
-
+  static propTypes= {
+    children: PropTypes.element,
+  }
   render() {
     return (
       <div>
@@ -24,7 +26,7 @@ export default class HomePage extends React.Component { // eslint-disable-line r
           <FormattedMessage {...messages.header} />
         </h1>
         <NavigationContainer />
-        <LinkListContainer />
+        {this.props.children}
       </div>
     );
   }
