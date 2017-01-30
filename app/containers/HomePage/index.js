@@ -19,13 +19,13 @@ export default class HomePage extends React.Component { // eslint-disable-line r
 
   render() {
     return (
-         <div>
-         <h1>
-        <FormattedMessage {...messages.header} />
-         </h1>
-        <NavigationContainer/>
-        <LinkListContainer/>
-       </div>  
+      <div>
+        <h1>
+          <FormattedMessage {...messages.header} />
+        </h1>
+        <NavigationContainer />
+        <LinkListContainer />
+      </div>
     );
   }
 }

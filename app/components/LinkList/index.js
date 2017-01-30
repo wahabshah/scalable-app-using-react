@@ -4,32 +4,32 @@
 *
 */
 
-import React,{PropTypes} from 'react';
+import React, { PropTypes } from 'react';
 
 
 import styles from './styles.css';
+import Link from '../Link';
 
-function LinkList({links}) {
-   const LinkNodes = links.map(link=>{
-    return <li key={link.id}>{link.url} -- {link.description}</li>
-   })
+function LinkList({ links }) {
+  const LinkNodes = links.map(link => <Link key={link.id} link={link} />);
   return (
     <div className={styles.linkList}>
-  <ul>
+      <ul>
    {LinkNodes}
-  </ul>
+      </ul>
     </div>
   );
 }
 
-LinkList.propTypes= {
+LinkList.propTypes = {
   links: PropTypes.arrayOf(
     PropTypes.shape({
-      description:PropTypes.string.isRequired,
-      url:PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+      url: PropTypes.string.isRequired,
       topicName: PropTypes.string.isRequired,
-      id:PropTypes.string.isRequired,
+      id: PropTypes.string.isRequired,
+      voteCount: PropTypes.number.isRequired,
     })
-  ).isRequired
-}
+  ).isRequired,
+};
 export default LinkList;

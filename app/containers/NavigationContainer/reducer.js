@@ -9,15 +9,16 @@ import {
   REQUEST_TOPICS,
   REQUEST_TOPICS_SUCCEEDED,
   REQUEST_TOPICS_FAILED,
-  SELECT_TOPIC
+  SELECT_TOPIC,
+  TOGGLE_DRAWER,
 } from './constants';
 
 const initialState = fromJS(
   {
-     topics:[
+    topics: [
   //     {
   //       name:"libraries",
-  //       description:"links to useful open source libraries" 
+  //       description:"links to useful open source libraries"
   //     },
   //     {
   //       name:"apps",
@@ -27,8 +28,9 @@ const initialState = fromJS(
   //       name:"news",
   //       description:"links to programming related new stuff"
   //     }
-     ]
-   }
+    ],
+    isDrawerOpen: false,
+  }
 );
 
 function navigationContainerReducer(state = initialState, action) {
@@ -36,11 +38,13 @@ function navigationContainerReducer(state = initialState, action) {
     case REQUEST_TOPICS:
       return state;
     case REQUEST_TOPICS_SUCCEEDED:
-      return state.set("topics", fromJS(action.topics));
+      return state.set('topics', fromJS(action.topics));
     case REQUEST_TOPICS_FAILED:
-      return state; 
+      return state;
     case SELECT_TOPIC:
-      return state.set("selectedTopic",fromJS(action.topic));
+      return state.set('selectedTopic', fromJS(action.topic)).set('isDrawerOpen', false);
+    case TOGGLE_DRAWER:
+      return state.set('isDrawerOpen', !state.get('isDrawerOpen'));
     default:
       return state;
   }

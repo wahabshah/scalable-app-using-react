@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 // import LinkList from '../index';
 
 import expect from 'expect';

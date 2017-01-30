@@ -13,7 +13,7 @@ export class LinkListContainer extends React.Component { // eslint-disable-line 
   render() {
     return (
       <div>
-      <LinkList {...this.props}/>
+        <LinkList {...this.props} />
       </div>
     );
   }
